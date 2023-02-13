@@ -147,7 +147,11 @@
                   <td><%= e.firstname %></td>
                   <td><%= e.lastname %> </td>
                   <td><%= e.age %> </td>
-                  <td><%= e.role %> </td>
+                  <% if(e.role=="staff"){ %>
+                  <td>reception</td>
+                  <% } else{ %>
+                    <td><%= e.role %></td>
+                   <% } %>
                   <td><%= e.gender %> </td>
                   <td>
                      <% if(e.role=="doctor") {%> 
