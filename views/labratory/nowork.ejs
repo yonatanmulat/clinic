@@ -8,11 +8,15 @@
     <title>view patient</title>
     <link rel="stylesheet" href="/stylesheet/doc.css">
     <%- include("../include/add") %> 
+    <script src="/socket.io/socket.io.js"></script>
 </head>
 
 <body>
     <section class="notification">
         <%- include("../include/notification") %> 
+     </section>
+     <section class="not">
+        <p class="p"></p>
      </section>
     <section class="viewpt">
         <div class="intros">
@@ -97,6 +101,18 @@
         <h5> cms 2022 all right reserved</h5>
     </footer>
     <script src="/javascript/main.js"></script>
+    <script>
+    const socket= io();
+        const not= document.querySelector(".not");
+        const p= document.querySelector(".p")
+        socket.on("assignlab",function(msg2){
+            p.textContent= msg2 ;
+            not.append(p);
+            setTimeout(() => {
+                p.style.display="none"
+            }, 2000);
+        })
+</script>
 </body>
 
 </html>
