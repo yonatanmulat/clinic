@@ -29,7 +29,7 @@ const { Socket } = require("dgram");
 mongoose.set('strictQuery', true);
 mongoose.connect(db)
    .then(() => {
-      console.log("connection done!!")
+      console.log("connection done!!")  
    })
    .catch(errr => {
       console.log("no error happen")
