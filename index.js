@@ -21,11 +21,9 @@ const adminrouter = require("./router/admin")
 const doctorrouter=require("./router/doctor")
 const labrouter=require("./router/lab")
 const MongoDBstore= require("connect-mongo")
-//const dburl='mongodb://localhost:27017/clinic'
 const db= process.env.dburl 
 const mongoose = require('mongoose');
 const { Socket } = require("dgram");
-// 'mongodb://localhost:27017/clinic'
 mongoose.set('strictQuery', true);
 mongoose.connect(db)
    .then(() => {
