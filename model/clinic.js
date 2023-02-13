@@ -5,7 +5,7 @@ const clinicshema= new schema({
    role:{
       type:String,
       lowercase:true,
-      enum:["doctor","reception","laboratory"]
+      enum:["doctor","staff","laboratory"]
    },username:{
       type:String,
       unique:true,
