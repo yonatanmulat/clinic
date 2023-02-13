@@ -43,7 +43,7 @@ const sessionconfig={
    saveUninitialized:true,
    resave:false,
     store:MongoDBstore.create({
-      mongoUrl :dburl,
+      mongoUrl :db,
       touchAfter:24 * 60 * 60,
    }) 
 }
