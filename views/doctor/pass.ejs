@@ -1,0 +1,37 @@
+<% layout("../layout/ejsmate") %>
+<%- include("../include/doctor") %>
+   <h1>change password</h1>
+   <form action="/dpassword/<%= id %>" method="post">
+      <!-- <div>
+         <label for="username">username:</label>
+         <input type="text" name="username" id="username" required>
+      </div> -->
+      <div>
+         <label for="oldpassword">old password:</label>
+         <input type="password" name="oldpassword" id="oldpassword" required>
+      </div>
+      <div>
+         <label for="newpassword">new password:</label>
+         <input type="password" name="password" id="newpassword" required>
+      </div>
+      <div>
+         <label for="confirmpassword">confirm password:</label>
+         <input type="password" name="password1" id="confirmpassword" required>
+      </div>
+      <p class="w">password not matched</p>
+      <button>submit</button>
+
+   </form>
+
+   <script>
+      const newpassword = document.querySelector("#newpassword")
+      const confirmpassword = document.querySelector("#confirmpassword")
+      const btn2 = document.querySelector("button")
+      const p= document.querySelector(".w")
+      btn2.addEventListener("click", (e) => {
+         if (!(newpassword.value == confirmpassword.value)) {
+            e.preventDefault()
+           p.style.display="block"
+         }
+      })
+   </script>

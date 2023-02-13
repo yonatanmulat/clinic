@@ -1,0 +1,883 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,800&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+:root{
+ --blue: #2a2185;
+ --white: #fff;
+ --gray: #f5f5f5;
+ --black1: #222;
+ --black2: #999;
+ --primary-color:#aaa4;
+--button-color: #000080;
+--gray-color:gray;
+ --white:rgb(250,250,250);
+ --black:#E6E6E8;
+}
+body{
+    font-family: 'Poppins', sans-serif;
+    letter-spacing: 1.2px;
+}
+ul {
+ list-style: none;
+
+}
+a{
+    text-decoration: none;
+}
+button{
+
+    text-align: center;
+    padding: 10px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    border-radius: 5px;
+    border: none;
+    background-color: var(--button-color);
+    color: white;
+    text-transform: uppercase;
+    cursor: pointer;
+    font-weight: bold;
+}
+img{
+    width: 200px ;
+    height: 200px ;
+    margin: 0;
+    border-radius: 50%;
+    border: 0.1px solid black;
+}
+i{
+    font-size: 20px;
+}
+ button:hover{
+    opacity: 0.8;
+}
+.container{
+    width: 100%;
+    height: 100vh;
+    position:relative;
+  
+}
+.navigation{
+    position: fixed;
+    width: 330px;
+    height: 100%;
+    background-color:var(--primary-color);
+    color: var(--white);
+    text-align: center;
+    color:black;
+    border-right:50px solid white;
+    margin-left: 7px;
+}
+.navigation li a{
+    color: black;
+    background-color: white;
+    display: inline;
+    cursor: pointer;
+}
+
+.nav li {
+    display: flex;
+    justify-content:flex-start;
+    align-items: center;
+    text-align:center;
+    width: 100%;
+    border-bottom: 1px solid black;
+    padding: 10px;
+    font-size: 10px;
+    font-weight: 200;
+    background-color: white;
+    position: relative;
+    cursor: pointer;
+}
+.nav .search form{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 29px;
+}
+.nav .search form input{
+    width: 65%;
+    padding:9px 40px;
+    border-radius: 5px;
+    outline: none;
+    margin-left: 16px;
+    border: 1px solid var(--button-color) ;
+    color:var(--button-color) ;
+    font-weight: bold;
+    background-color:white;
+}
+.nav .search form input::placeholder{
+    color:var(--button-color);
+}
+.nav .search form button{
+  padding: 2px 6px;
+  width: 24%;
+  text-align: center;
+  height: 37px;
+  justify-content: flex-end;
+  background-color:white;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-left: 5px;
+  color: black;
+  border: 1px solid var(--button-color) ;
+}
+
+nav li a:hover{
+  background-color: var(--white);
+  border-radius: 5px;
+  color:var(--button-color);
+  border: none;
+}
+.icon{
+    padding: 17px;
+}
+.nav .logo{
+    margin-bottom:120px;
+    padding: 15px;
+    text-align: center;
+    border: none;
+    font-size: 20px;
+    background-color: var(--black);
+}
+.main{
+    position: absolute;
+    width: calc(100% - 330px);
+    left: 300px;
+    min-height: 100vh;
+    background: var(--black);
+  
+   
+}
+
+.main .heading{
+    display: flex;
+    height: 17vh;
+    justify-content: flex-end;
+    align-items: center;
+    background-color: white;
+    padding: 15px;
+    border-bottom: 1px solid black;
+    font-size: 15px;
+    font-weight: 600;
+    color:black;
+  
+  
+}
+
+.dropbtn {
+    background-color:white;
+    color: black;
+    padding: 18px;
+    font-size: 17px;
+    border: none;
+    cursor: pointer;
+    margin-left: 30px;
+   
+  }
+  
+  
+ 
+  .dropdown-content {
+    display:none;
+    flex-direction: column;
+    position: absolute;
+    top: 75px;
+    right: 40px;
+    background-color:var(--primary-color);
+    min-width: 160px;
+    overflow: auto;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 100;
+    margin-left: 30px;
+  }
+  
+  .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+  
+  .dropdown a:hover {background-color: #ddd;}
+  
+  .show {display:flex;}
+.main .h1{
+    position: relative;
+    color:black;
+    height: 150px;
+    text-align: left;
+    vertical-align: center;
+    padding: 20px 60px;
+    font-size: 20px;
+}
+.card-box {
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    height: 250px;
+    background-color: white;
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+    color:black;
+    gap:20px
+}
+.card-box .card{
+    padding: 40px 10px;
+    background-color: var(--white);
+    margin: 0 50px;
+    text-align: center;
+    text-transform: capitalize;
+    font-size: 17px;
+    font-weight: 800;
+    box-shadow: 0px 1px 2px black,0px 1px 2px white;
+    border-radius: 10px;
+   
+}
+.card-box .card a{
+    color:black;
+}
+.card-box .card:hover{
+    background-color: var(--white);
+    opacity: 0.8;
+    color: black;
+  }
+
+  footer{
+    position: absolute;
+    bottom: 0;
+    text-align: right;
+    color:rgba(60, 60,60, 0.6);
+    padding: 10px;
+    text-transform: uppercase;
+    margin-left: 40px;
+    text-transform: capitalize;
+}
+.crtact{
+    border: 1px solid black;
+    background-color: black;
+    color: white;
+    padding: 9px;
+    display: none;
+}
+.crtact .hed {
+  display: flex;
+  justify-content: space-between;
+ 
+}
+.crtact .hed i{
+    justify-self: flex-end;
+    margin:0;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+  
+}
+.crtact .hed i:hover{
+    color:white;
+    background-color:red;
+}
+
+.crtact h1{
+    padding: 18px;
+}
+.crtact label{
+    font-size: 12px;
+    padding-bottom: 12px;
+}
+.crtact button,.crtact select,.crtact input{
+    color: white;
+}
+.crtacts{
+    border: 1px solid black;
+    background-color: black;
+    color: white;
+    padding: 9px;
+    /* display: none; */
+}
+.crtacts .hed {
+  display: flex;
+  justify-content: space-between;
+ 
+}
+.crtacts .hed i{
+    justify-self: flex-end;
+    margin:0;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+  
+}
+.crtacts .hed i:hover{
+    color:white;
+    background-color:red;
+}
+.src input{
+    padding: 50px 10px;
+}
+
+.crtacts h1{
+    padding: 18px;
+}
+.crtacts label{
+    font-size: 12px;
+    padding-bottom: 12px;
+}
+.crtacts button,.crtact select,.crtact input{
+    color: white;
+}
+.none{
+    display: none;
+}
+.see{
+    display: block;
+}
+  .register{
+    border-radius: 25px;
+    background-color: white;
+    position: absolute;
+    bottom: 5rem;
+    left: 20rem;
+    text-align: right;
+    color: gray;
+    padding: 30px 150px;
+    text-transform: uppercase;
+    margin-left: 40px;
+   
+}
+
+.register input,.register select{
+    display: flex;
+    text-align: center;
+    justify-content:center;
+    align-items: center;
+    flex-direction: column;
+    padding: 10px  30px;
+    margin: 20px 10px;
+    border-radius: 5px;
+    outline: none;
+    width: 15rem;
+    
+    
+}
+.register select{
+    width: 10rem;
+}
+ .addpatient{
+    border-radius: 20px;
+    background-color: white;
+    position: absolute;
+    bottom: 2rem;
+    left: 20rem;
+    color: gray;
+    padding: 15px 100px;
+    text-transform: uppercase;
+    margin-left: 40px;
+    z-index: 10;
+    margin-top: 16px;
+ }
+ .addpatient h1{
+    font-size: 20px;
+    margin-bottom: 12px;
+    text-align: center;
+ }
+ .addpatient .row label{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+ }
+ .addpatient .row {
+    padding: 5px 15px;
+ }
+ .addpatient .row input{
+    justify-content: flex-end;
+    display: flex;
+    padding: 10px 15px;
+    width:400px;
+    border-radius: 6px;
+    background-color: var(--primary-color);
+    outline: none;
+    border: none;
+   
+    
+ }
+ .addpatient .row select{
+    border-radius: 6px;
+    background-color: var(--primary-color);
+    outline: none;
+    border: none;
+   
+    width: 130px;
+    height: 30px;
+    margin-bottom: 17px;
+ }
+ .addpatient button{
+    margin-left: 150px;
+    padding: 13px 30px;
+   margin-bottom: 18px;
+ }
+ .addpatients{
+    border-radius: 20px;
+    background-color: white;
+    position: absolute;
+    bottom: 2rem;
+    left: 30rem;
+    color: gray;
+    padding: 100px 100px;
+    text-transform: uppercase;
+    margin-left: 40px;
+    z-index: 10;
+    margin-top: 16px; 
+}
+.addpatients h1{
+    font-size: 20px;
+    margin-bottom: 12px;
+    text-align: center; 
+}
+.addpatients .row label{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+ }
+ .addpatients .row {
+    padding: 5px 15px;
+ } 
+ .addpatients .row input{
+    justify-content: flex-end;
+    display: flex;
+    padding: 10px 15px;
+    width:400px;
+    border-radius: 6px;
+    background-color: var(--primary-color);
+    outline: none;
+    border: none;
+   
+    
+ }
+ .addpatients button{
+    margin-left: 150px;
+    padding: 13px 30px;
+   margin-bottom: 18px;
+ }
+
+
+ .active {
+   color: white !important;
+   background-color: var(--button-color) !important ;
+   border-radius: 10px;
+ }
+ .count{
+    padding-left: 40px;
+    padding: 10px;
+    top: 8rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    width:300px;
+    height:190px;
+    border-radius: 50%;
+    position:absolute;
+    left: 30rem;
+    text-align: center;
+    color: gray;
+    flex-direction: column;
+    box-shadow: 0px 1px 2px black,0px 1px 2px gray;
+ }
+ .count h1 span{
+    color: red;
+    font-size: 50px;
+    font-weight: bold;
+
+ }
+ .count h6{
+    padding: 10px;
+    font-size: 15px;
+    color:var(--button-color);
+    font-weight: bolder;
+    z-index: 1;
+ }
+
+ .vpatient{
+   
+    width: 900px;
+    height:350px;
+    overflow:auto;
+    background-color: white;
+    position: absolute;
+    bottom: 5rem;
+    left: 18rem;
+    text-align: center;
+    color: gray;
+    
+}
+.table{
+    
+    width: 100%;
+    border-collapse:collapse;
+    border-spacing: 0;
+    padding: 20px;
+    
+}
+.table thead th{
+   text-transform: uppercase;
+   padding: 0.5rem 0.5rem;
+   text-decoration: underline;
+   font-weight: bold;
+}
+.table tbody tr td{
+    padding:0.3rem 0.9rem ;
+    text-align: center;
+    margin-left: 10px;
+}
+.table tbody tr:nth-child(even){
+ background-color:var(--white);
+}
+
+/*....................responsivenes.......,,,,,,,*/
+
+@media (max-width:1600px) {
+    .container{
+       
+        height: 170vh;
+    }
+    .main{
+        min-height: 120vh;   
+    }
+    .navigation{
+        
+        height: 100%;
+
+    }
+    .nav li { 
+        padding: 12px;
+        font-size: 7px; 
+    }
+    .icon{
+        padding: 0 5px;
+       
+    }
+    .icon i{
+   font-size: 8px;
+    }
+    
+.main .heading{
+   
+    height: 10vh;
+    font-size: 10px;
+}
+.main .h1{
+   
+    height: 80px;
+    font-size: 17px;
+}
+.card-box {
+    
+    height: 180px;
+    gap:7px
+}
+.card-box .card{
+    padding: 25px 10px;
+    font-size: 10px; 
+}
+.register{
+    bottom: 13rem;
+    left: 10rem;
+    padding: 12px 70px;
+    margin-left: 20px;
+   text-align: center;
+   height: 300px;
+}
+.register input{
+font-size: 10px;
+}
+.register button{
+font-size: 8px;
+padding: 13px;
+margin-bottom: 15px;
+}
+.src input{
+    padding: 50px 10px;
+} 
+
+.register select{
+    padding: 4px  12px;
+   
+    border-radius: 3px;
+    width: 5rem;
+    font-size: 10px;
+    
+}
+.count{
+    padding-left: 20px;
+    padding: 10px;
+    top: 5rem;
+    width:200px;
+    height:130px;
+    left: 20rem;
+
+ }
+ .count h1 span{
+    font-size: 27px;
+ }
+ .count h6{
+    padding: 7px;
+    font-size: 9px;
+   
+ }
+ .vpatient{
+   
+    width: 700px;
+    height:220px;
+    bottom: 15rem;
+    left: 4rem; 
+    font-size: 12px;
+    text-align: left;
+}
+.table{
+    padding: 10 12px;
+    
+}
+.table button{
+    padding: 10 12px;
+    font-size: 8px;
+    
+}
+.table thead th{
+   padding: .4rem .8rem;
+   font-weight: 400;
+}
+.table tbody tr td{
+    padding:0.1rem 0.2rem ;
+    font-size: 8px;
+    margin-left: 6px;
+}
+.nav .search form{
+    margin-bottom: 8px;
+    font-size: 5px;
+}
+.nav .search form input{
+    width: 70%;
+    padding:4px 20px;
+    border-radius: 3px;
+    margin-left: 6px;
+   font-size: 5px;
+}
+
+.nav .search form button{
+  padding: 3px 3px;
+  width: 34%;
+  text-align: center;
+  height: 17px;
+  font-size: 5px;
+}
+
+.addpatient{
+    bottom: 11rem;
+    left: 10rem;
+    padding: 10px 60px;
+    margin-left: 20px;
+    margin-top: 8px;
+ }
+ .addpatient h1{
+    font-size: 12px;
+    margin-bottom: 8px;
+
+ }
+ 
+ .addpatient .row {
+    padding: 3px 8px;
+ }
+ .addpatient .row input{
+    padding:8px 10px;
+    width:300px;
+    border-radius: 4px;
+ }
+ .addpatient .row select{
+    border-radius: 4px;
+    width: 100px;
+    height: 20px;
+    margin-bottom: 14px;
+ }
+ .addpatient button{
+    margin-left: 120px;
+    padding: 6px 18px;
+   margin-bottom: 12px;
+ }
+
+}
+@media (max-width:1200px){
+    .container{
+       
+        height: 200vh;
+       
+    }
+    .main{
+        min-height: 160vh;   
+        width: calc(100% - 200px);
+        left: 170px;
+       
+    }
+    .navigation{
+        width: 200px;
+        height: 100%;
+        
+    }
+    .navigation li{
+        padding: 5px ;
+        font-size: 5px; 
+    }
+
+    
+.main .heading{
+   
+    height: 10vh;
+    font-size: 7px;
+}
+.main .h1{
+   
+    height: 70px;
+    font-size: 10px;
+}
+img{
+    width: 70px;
+    height: 70px;
+}
+
+.card-box {
+    
+    height: 150px;
+    gap:10px
+}
+.card-box i{
+    font-size: 10px;
+}
+.card-box .card{
+    padding: 40px 10px;
+    font-size: 9px;
+    width: 140px; 
+}
+.register{
+    bottom: 25rem;
+    left: 7rem;
+    margin-left: 15px;
+    height: 200px;
+    font-size: 8px;
+}
+.register input{
+font-size: 6px;
+padding: 5px 0px;
+}
+.register button{
+font-size: 6px;
+padding: 7px 7px;
+margin-bottom: 90px;
+}
+.src input{
+    padding: 50px 10px;
+} 
+
+.register select{
+    padding: 4px  10px;
+    border-radius: 3px;
+    width: 4rem;
+    font-size: 8px;
+    
+}
+.count{
+    padding-left: 20px;
+    padding: 15px 0px;
+    top: 3rem;
+    width:180px;
+    height:110px;
+    left: 17rem;
+
+ }
+ .count h1 span{
+    font-size: 20px;
+ }
+ .count h6{
+    padding:  0px;
+    font-size: 9px;
+   
+ }
+ .vpatient{
+   
+    width: 500px;
+    height:180px;
+    bottom: 25rem;
+    left: 3rem; 
+    font-size: 8px;
+
+}
+.table{
+    padding: 10 12px;
+    
+}
+.table button{
+    padding: 10 12px;
+    font-size: 5px;
+    
+}
+.table thead th{
+   padding: .4rem .8rem;
+   font-weight: 400;
+}
+.table tbody tr td{
+    padding:0.1rem 0.2rem ;
+    font-size: 8px;
+    margin-left: 6px;
+}
+.addpatient{
+    width: 350px ;
+    height: 320px ;
+    bottom: 24rem;
+    left: 10rem;
+    padding: 8px 20px;
+    margin-left: 20px;
+    margin-top: 8px;
+ }
+ .addpatient h1{
+    font-size: 10px;
+    margin-bottom: 5px;
+
+ }
+ 
+ .addpatient .row {
+    padding: 3px 5px;
+    font-size: 7px;
+    
+ }
+ .addpatient .row input{
+    padding:5px 7px;
+    width:200px;
+    border-radius: 4px;
+    font-size: 7px;
+ }
+ .addpatient .row select{
+    border-radius: 4px;
+    width: 80px;
+    height: 12px;
+    margin-bottom: 10px;
+    font-size: 7px;
+ }
+ .addpatient button{
+    margin-left: 120px;
+    padding: 6px 10px;
+   margin-bottom: 12px;
+   font-size: 8px;
+ }
+ .dropbtn {
+    padding: 10px;
+    font-size: 7px;
+    margin-left: 20px;
+  }
+  .dropdown-content a {
+    padding: 10px 8px;
+  }
+
+}
+

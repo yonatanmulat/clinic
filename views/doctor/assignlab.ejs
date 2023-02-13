@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>assign lab</title>
+   <link rel="stylesheet" href="/stylesheet/doc.css">
+   <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+   <script src="/socket.io/socket.io.js"></script>
+</head>
+
+<body>
+   <section class="viewpt">
+      <div class="intros">
+         <div class="logo">
+            <img src="/image/aastu logo.jpg" alt="aastu logo">
+         </div>
+
+         <div class="intro">
+            <h1>| ASSIGN LAB</h1>
+         </div>
+
+         <div class="logout">
+
+            <span></span>
+            <div class="dropdown">
+               <button onclick="myFunction()" class="dropbtn">DOCTOR <i
+                     class="fa-sharp fa-solid fa-caret-down"></i></button>
+               <div id="myDropdown" class="dropdown-content ">
+                  <% if(doctor){ %>
+                     <p style="padding-left: 15px;padding-top: 5px;">
+                        <%= doctor[1] %>
+                           <%= doctor[2] %>
+                     </p>
+                     <a href="#" class="cpwrd" onclick="ChangeFunction()">change password</a>
+                     <a href="/doctor/logout/<%= doctor[0] %>">logout</a>
+                     <% } %>
+               </div>
+            </div>
+         </div>
+      </div>
+
+   </section>
+   <section class="">
+      <div>
+
+         <div>
+            <div class="addpatient " style="position: absolute; top: 0; z-index: 10; background-color: transparent;">
+               <form action="/dpassword/<%= id %>" method="post" class="crtact " id="nwpswrd">
+                  <div class="hed">
+                     <h1>CHANGE password</h1>
+                     <i class="clicke">x</i>
+                  </div>
+
+                  <div class="column">
+                     <div class="row">
+                        <label for="oldpswrd">OLD password:</label>
+                        <input type="password" id="oldpswrd" name="oldpassword" placeholder="enter old password..."
+                           required>
+                     </div>
+                     <div class="row">
+                        <label for="pswrd">NEW password:</label>
+                        <input type="password" id="newpswrd" name="password" placeholder="enter new password..."
+                           required>
+                     </div>
+                     <div class="row">
+                        <label for="pswrd">CONFIRM password:</label>
+                        <input type="password" id="confpswrd" name="password1" placeholder="confirm password..."
+                           required>
+                     </div>
+                     <div class="error none ">
+                        <p style="color: red; font-size: 10px; margin: 15px;">it doesn't match please confirm the
+                           password!!!!!!</p>
+                     </div>
+                     <div class="sucess none ">
+                        <p style="color:green; font-size: 10px; margin: 15px;">sucessfully matched the password!!!!!!
+                        </p>
+                     </div>
+                     <button>CHANGE</button>
+                  </div>
+               </form>
+            </div>
+         </div>
+   </section>
+   <h1></h1>
+   <section class="asign">
+      <h1></h1>
+
+      <form action="/login/<%= pid %>/doctor/<%= id %>" method="post">
+         <div class="colum">
+            <div class="test">
+               <label for="name">TEST TYPE</label>
+               <select name="name" id="name" multiple required>
+                  <option value="stool">STOOL</option>
+                  <option value="urinalysis">URINE ANALYSIS</option>
+               </select>
+
+            </div>
+            <label for="description">DESCRIPTION</label>
+            <div class="des">
+               <textarea name="description" id="description" cols="30" rows="5" required
+                  placeholder="DESCRIPTION"></textarea>
+            </div>
+            <div class="lab">
+               <label for="username">LABRATORY</label>
+               <select name="username" id="username">
+                  <% for(let labratory of labratorys){ %>
+                     <option value="<%= labratory.username %>">
+                        <%= labratory.firstname %>
+                     </option>
+                     <% } %>
+               </select>
+            </div>
+            <button class="send">SEND</button>
+         </div>
+
+      </form>
+
+
+   </section>
+
+   <footer>
+      <h5> cms 2022 all right reserved</h5>
+   </footer>
+   <script src="/javascript/main.js"></script>
+   <script>
+      const socket = io();
+      const btn = document.querySelector(".send");
+      btn.addEventListener("click", () => {
+         socket.emit("assignlab", "new laboratory test");
+      })
+   </script>
+</body>
+
+</html>

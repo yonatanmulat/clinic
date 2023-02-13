@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>lab result</title>
+    <link rel="stylesheet" href="/stylesheet/doc.css">
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+</head>
+
+<body>
+    <section class="viewpt">
+        <div class="intros">
+            <div class="logo">
+                <img src="/image/aastu logo.jpg" alt="aastu logo">
+            </div>
+
+            <div class="intro">
+                <h1>| LABRATORY RESULT</h1>
+            </div>
+
+            <div class="logout">
+
+                <span></span>
+                <div class="dropdown">
+                    <button onclick="myFunction()" class="dropbtn">DOCTOR <i
+                            class="fa-sharp fa-solid fa-caret-down"></i></button>
+                    <div id="myDropdown" class="dropdown-content ">
+                        <% if(doctor){ %> 
+                            <p style="padding-left: 15px;padding-top: 5px;"><%= doctor[1] %> <%= doctor[2] %> </p>
+                            <a href="#" class="cpwrd" onclick="ChangeFunction()">change password</a>
+                            <a href="/doctor/logout/<%= doctor[0] %>">logout</a>
+                            <% } %>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section   class="">
+        <div>
+    
+            <div>
+                <div class="addpatient " style="position: absolute; top: 0; z-index: 10; background-color: transparent;" >
+                    <form action="/dpassword/<%= docid %>" method="post" class="crtact " id="nwpswrd" >
+                        <div class="hed">
+                        <h1>CHANGE password</h1>
+                        <i class="clicke">x</i>
+                        </div>
+    
+                        <div class="column">
+                            <div class="row">
+                                <label for="oldpswrd">OLD password:</label>
+                                <input type="password" id="oldpswrd" name="oldpassword" placeholder="enter old password..." required>
+                            </div>
+                            <div class="row">
+                                <label for="pswrd">NEW password:</label>
+                                <input type="password" id="newpswrd" name="password" placeholder="enter new password..." required>
+                            </div>
+                            <div class="row">
+                                <label for="pswrd">CONFIRM password:</label>
+                                <input type="password" id="confpswrd" name="password1" placeholder="confirm password..." required>
+                            </div>
+                            <div class="error none ">
+                                <p style="color: red; font-size: 10px; margin: 15px;">it doesn't match please confirm the password!!!!!!</p>
+                            </div>
+                            <div class="sucess none ">
+                                <p style="color:green; font-size: 10px; margin: 15px;">sucessfully matched the password!!!!!!</p>
+                            </div>
+                            <button>CHANGE</button>
+                        </div>
+                    </form>
+                </div>
+        </div>
+     </section>
+    <section class="vpatient">
+        <% for(let e of arr){ %>
+
+
+            <% if(e.color || e.appearanceu || e.gravity || e.ph || e.bilirubin || e.ketone || e.glucose || e.protien ||
+                e.blood || e.nitrite || e.leukocycte || e.hugtest) { %>
+                <h1>urine analysis result</h1>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>color</th>
+                            <th> appearance</th>
+                            <th>st.gravity</st>
+                            </th>
+                            <th>ph</th>
+                            <th>Bilirubin</th>
+                            <th>ketone</th>
+                            <th>glucose</th>
+                            <th>blood</th>
+                            <th>protien</th>
+                            <th>nitrite</th>
+                            <th>HCG TEST</th>
+                            <th>leukocycte</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <%= e.color %>
+                            </td>
+                            <td>
+                                <%= e.appearanceu %>
+                            </td>
+                            <td>
+                                <%= e.gravity %>
+                            </td>
+                            <td>
+                                <%= e.ph %>
+                            </td>
+                            <td>
+                                <%= e.bilirubin %>
+                            </td>
+                            <td>
+                                <%= e.ketone %>
+                            </td>
+                            <td>
+                                <%= e.glucose %>
+                            </td>
+                            <td>
+                                <%= e.blood %>
+                            </td>
+                            <td>
+                                <%= e.protien %>
+                            </td>
+                            <td>
+                                <%= e.nitrite %>
+                            </td>
+                            <td>
+                                <%= e.hugtest %>
+                            </td>
+                            <td>
+                                <%= e.leukocycte %>
+                            </td>
+
+                        </tr>
+                    </tbody>
+
+                </table>
+                <% } %>
+                    <% if(e.wbc || e.RBC || e.epitherialcell || e.bacteria || e.crystal || e.casts || e.other) { %>
+                        <h1>microscopy urine analysis</h1>
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>WBC</th>
+                                    <th> RBC</th>
+                                    <th>Epitherial cell</th>
+                                    <th>bacteria</th>
+                                    <th>crystal</th>
+                                    <th>casts</th>
+
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <%= e.wbc %>
+                                    </td>
+                                    <td>
+                                        <%= e.RBC %>
+                                    </td>
+                                    <td>
+                                        <%= e.epitherialcell %>
+                                    </td>
+                                    <td>
+                                        <%= e.bacteria %>
+                                    </td>
+                                    <td>
+                                        <%= e.crystal %>
+                                    </td>
+                                    <td>
+                                        <%= e.casts %>
+                                    </td>
+
+
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+                        <% } %>
+                            <% if(e.appearance || e.consistance || e.pus || e.RBC || e.stoolage || e.parasite){ %>
+                                <h1>stool result</h1>
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>consistance</th>
+                                            <th> appearance</th>
+                                            <th>pus</st>
+                                            </th>
+                                            <th>RBC</th>
+                                            <th>OVA OF PARASITE</th>
+                                            <th>H.Pylori stool AG</th>
+
+
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <%= e.consistance %>
+                                            </td>
+                                            <td>
+                                                <%= e.appearance %>
+                                            </td>
+                                            <td>
+                                                <%= e.pus %>
+                                            </td>
+                                            <td>
+                                                <%= e.RBC %>
+                                            </td>
+                                            <td>
+                                                <%= e.parasite %>
+                                            </td>
+                                            <td>
+                                                <%= e.stoolage %>
+                                            </td>
+                                        </tr>
+
+                                    </tbody>
+
+                                </table>
+                                <% } %>
+                                    <% } %>
+
+
+    </section>
+
+    <section class="asign">
+        <h1></h1>
+
+        <form action="/login/<%= id %>/doc/<%= docid %>" method="post">
+            <h1 style="color: black;">PATIENT'S DISEASE</h1>
+            <div class="colum">
+
+                <label for="descriptin">DESCRIPTION</label>
+                <div class="des">
+                    <textarea name="result" id="descriptin" cols="40" rows="10" required placeholder="description"></textarea>
+                </div>
+                <button>SUBMIT</button>
+            </div>
+
+        </form>
+
+
+    </section>
+
+
+
+
+    <footer>
+        <h5> cms 2022 all right reserved</h5>
+    </footer>
+    <script src="/javascript/main.js"></script>
+</body>
+
+</html>

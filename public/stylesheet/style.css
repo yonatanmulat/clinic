@@ -1,0 +1,237 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,800&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+:root{
+    --primary-color:#B78C08;
+    --button-color: #0e0e61;
+    --gray-color:gray;
+    --white:rgb(250,250,250);
+}
+body{
+    font-family: 'Poppins', sans-serif;
+}
+ul {
+ list-style: none;
+
+}
+a{
+    text-decoration: none;
+}
+h1{
+    color: var(--primary-color);
+}
+button{
+
+    text-align: center;
+    padding: 10px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    border-radius: 5px;
+    border: none;
+    background-color: var(--button-color);
+    color: white;
+    text-transform: uppercase;
+    cursor: pointer;
+    font-weight: bold;
+}
+ button:hover{
+    opacity: 0.8;
+}
+.navbar{
+    height: 70vh;
+    width: 100%;
+    background-image :linear-gradient(to bottom right, white, var(--primary-color));
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: var(--button-color);
+    z-index: -1;
+   
+}
+
+.navbar .logo img{
+    width: 200px ;
+    height: 200px ;
+    margin: 0;
+    border-radius: 50%;
+    z-index: 1;
+   
+}
+.navbar .navigation{
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    color: var(--button-color);
+   
+}
+.navbar .navigation h1{
+    font-size: 50px;
+    font-weight: bold;
+    letter-spacing: 1.2px;
+    z-index: 10px;
+    
+}
+#login{
+    background-color: var(--button-color);
+    height: 40vh;
+    color: white;
+ 
+}
+.loginpg{
+    display: flex;
+    justify-content: space-between;
+    text-transform: capitalize;
+    padding-top: 10px;
+
+}
+.loginpg .staff, 
+.loginpg .labratory, 
+.loginpg .admin,.loginpg .doc{
+      width: 300px;
+      height: 250px;
+     border: 1px solid white;
+     margin: auto;
+     padding: 30px;
+     color: var(--button-color);
+     background-color: white;
+    box-shadow: 1px 2px 3px white;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    text-align: center;
+     
+}
+
+.loginpg .staff div, 
+.loginpg .labratory div, 
+.loginpg .admin div, .loginpg .doc div {
+   font-size: 20px;
+   font-weight: bold;
+   width: 100px;
+   
+}
+.loginpg .staff .icon, 
+.loginpg .labratory .icon, 
+.loginpg .admin .icon,.loginpg .doc .icon {
+    color:black;
+    font-size: 60px;
+}
+
+.loginpg .staff span, 
+.loginpg .labratory span, 
+.loginpg .admin span,.loginpg .doc span{
+    color: var(--gray-color);
+    padding:10px;
+    font-weight: 300;
+    cursor: pointer;
+}
+.loginpg .staff span:hover, 
+.loginpg .labratory span:hover, 
+.loginpg .admin span:hover{
+ opacity: 0.6;
+}
+#stflogin,#admlogin,#lablogin,#doclogin{
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%,25%);
+    background-color:var(--white);
+    height: 60vh;
+    width: 500px;
+    border: 1px solid white;
+    box-shadow: 0px 0px 2px;
+    padding: 20px;
+}
+#acount{
+    height: 80vh;
+    width: 700px; 
+    position: absolute;
+    left: 50%;
+    top: 10px;
+    transform: translate(-50%,15%);
+    background-color:var(--white);
+    border: 1px solid white;
+    box-shadow: 0px 0px 2px;
+    padding: 10px;
+}
+.row{
+    width: 50%;
+    display: flex;
+    flex-direction: row;
+
+}
+.row label{ 
+    align-items: center;
+    color:var(--button-color);
+    padding-bottom: 5px;
+    text-transform: capitalize;
+}
+
+.stalogin h6,.adlogin h6,.lblogin h6,.doclogin h6{
+    color:black;
+    padding: 15px;
+    padding-left: 10px;
+    font-size: 20px;
+    text-align: left;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 500;
+}
+.form  h6{
+   text-transform: capitalize;
+   padding-left: 5px;
+   font-family: 'Courier New', Courier, monospace;
+}
+.form form input{
+    padding: 10px;
+    border: 1px solid black;
+    font-family: 'Courier New', Courier, monospace;
+    outline: none;
+    border-radius: 5px;
+}
+.form form button{
+    width: 25%;
+    align-self: flex-end;
+    
+}
+.form form button:hover{
+    opacity: 0.8;
+}
+.form form div{
+    display: flex;
+    flex-direction: column;
+    padding: 15px 10px;
+
+}
+.act{
+    display: flex;
+    padding: 5px;
+    font-size: 19px;
+    text-align: center;
+}
+.act a{
+    color: var(--button-color);
+    font-weight: bold;
+    font-size: 23px;
+}
+footer{
+    position: absolute;
+    bottom: 0;
+    text-align: center;
+    color: gray;
+    padding: 10px;
+    text-transform: uppercase;
+}
+.errornum{
+    text-align: center;
+    font-size: 50px;
+    color: black;
+    border-bottom: 2px solid black;
+    margin: 0px 200px;
+}
+.errorval{
+    text-align: center;
+    font-size: 40px;
+    color: black;
+}

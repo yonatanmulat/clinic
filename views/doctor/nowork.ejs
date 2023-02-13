@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>laboratory login</title>
+</head>
+<link rel="stylesheet" href="/stylesheet/doc.css">
+<link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+<%- include("../include/add") %> 
+<body>
+    <!-- <nav>
+        <div class="navigtion">
+            <ul>
+                <a href=""><li>VIEW PATIENT</li></a>
+                <a href=""><li>ASSIGN LAB</li></a>
+                <a href=""><li>LAB RESULT</li></a>
+                
+            </ul>
+        </div>
+    </nav> -->
+    <section class="notification">
+       <%- include("../include/notification") %> 
+    </section>
+   
+    <section class="viewpt">
+        <div class="intros">
+            <div class="logo">
+                <img src="/image/aastu logo.jpg" alt="aastu logo">
+            </div>
+            <div class="intro">
+                <h1>| VIEW PATIENT</h1>
+            </div>
+
+            <div class="logout">
+               
+                <span></span>
+                <div class="dropdown">
+                    <button onclick="myFunction()" class="dropbtn">DOCTOR <i class="fa-sharp fa-solid fa-caret-down"></i></button>
+                    <div id="myDropdown" class="dropdown-content ">
+                      <% if(doctor){ %> 
+                        <p style="padding-left: 15px;padding-top: 5px;"><%= doctor[1] %> <%= doctor[2] %> </p>
+                        <a href="#" class="cpwrd" onclick="ChangeFunction()">change password</a>
+                        <a href="/doctor/logout/<%= doctor[0] %>">logout</a>
+                        <% } %>
+                    </div>
+             </div>
+            </div>
+            
+            
+        </div>
+        <section   class="">
+            <div>
+        
+                <div>
+                    <div class="addpatient " style="position: absolute; top: 0; z-index: 10; background-color: transparent;" >
+                        <form action="/dpassword/<%= id %>" method="post" class="crtact " id="nwpswrd" >
+                            <div class="hed">
+                            <h1>CHANGE password</h1>
+                            <i class="clicke">x</i>
+                            </div>
+        
+                            <div class="column">
+                                <div class="row">
+                                    <label for="oldpswrd">OLD password:</label>
+                                    <input type="password" id="oldpswrd" name="oldpassword" placeholder="enter old password..." required>
+                                </div>
+                                <div class="row">
+                                    <label for="pswrd">NEW password:</label>
+                                    <input type="password" id="newpswrd" name="password" placeholder="enter new password..." required>
+                                </div>
+                                <div class="row">
+                                    <label for="pswrd">CONFIRM password:</label>
+                                    <input type="password" id="confpswrd" name="password1" placeholder="confirm password..." required>
+                                </div>
+                                <div class="error none ">
+                                    <p style="color: red; font-size: 10px; margin: 15px;">it doesn't match please confirm the password!!!!!!</p>
+                                </div>
+                                <div class="sucess none ">
+                                    <p style="color:green; font-size: 10px; margin: 15px;">sucessfully matched the password!!!!!!</p>
+                                </div>
+                                <button>CHANGE</button>
+                            </div>
+                        </form>
+                    </div>
+            </div>
+         </section>
+
+    </section>
+    <h1 style="text-align: center;">medical instruction</h1>
+    <p class="lorem">Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae officiis tempora, quaerat numquam natus placeat provident sit animi veniam, nobis quod itaque quas error magnam. Totam rerum in iusto at?
+    Corporis, sunt dignissimos! Quod, deserunt? Exercitationem, neque voluptatum. Molestiae deserunt, itaque quam optio repellendus unde cum inventore neque veritatis natus voluptas doloribus nisi quibusdam harum minima! Eveniet consequuntur in aliquid?
+    Dignissimos vel inventore perspiciatis! A blanditiis officia est reiciendis ipsum ratione vitae ut inventore, sed minus quibusdam, dolore magnam odio quis enim repellat error natus qui dolorem quod voluptatibus? Voluptatibus.
+    Consectetur explicabo ipsa accusantium dolores iusto quam repellat quasi repudiandae minima voluptatem sint repellendus fuga placeat consequuntur exercitationem quibusdam porro est eos iure architecto, molestiae earum sit in obcaecati. Accusamus!
+    Quos, voluptatibus est. Ea consectetur sed vel maiores repellendus error possimus perspiciatis explicabo eos, inventore accusamus, pariatur alias blanditiis unde quasi veniam aliquid facere! Saepe reiciendis assumenda officia asperiores ipsum!
+    Ab dolores molestiae facere nisi, ad cum. Repellendus est nobis iure deserunt similique, assumenda veniam rem consectetur, voluptas eum praesentium blanditiis. Quasi ut suscipit eligendi laboriosam in tenetur! Officia, eveniet!
+    Vitae pariatur quia sed quam tempore sapiente libero eos consequuntur iure. Ab vitae rerum voluptatem totam nulla eaque quasi praesentium perspiciatis, minima explicabo esse nihil sapiente, quae doloribus dolores quam.</p>
+    <footer>
+        <h5> cms 2022 all right reserved</h5>
+    </footer>
+    <script src="/javascript/main.js"></script>
+</body>
+</html>
+

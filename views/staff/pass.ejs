@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>staff login</title>
+    <link rel="stylesheet" href="/stylesheet/dash.css">
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+<%- include("../include/add") %> 
+</head>
+<body>
+   <section class="notification">
+      <%- include("../include/notification") %> 
+   </section>
+    <section >
+    <div >
+
+            <div class="addpatients" style="position: absolute; top: 0; z-index: 10;" >
+                <form action="/changepassword/<%= id %>" method="post" class="crtacts" >
+                    <h1>CHANGE password</h1>
+                    <div class="column">
+                        <div class="row">
+                            <label for="oldpswrd">OLD password:</label>
+                            <input type="password" id="oldpswrd" name="oldpassword" placeholder="enter old password..." required>
+                        </div>
+                        <div class="row">
+                            <label for="pswrd">NEW password:</label>
+                            <input type="password" id="newpswrd" name="password" placeholder="enter new password..." required>
+                        </div>
+                        <div class="row">
+                            <label for="pswrd">CONFIRM password:</label>
+                            <input type="password" id="confpswrd" name="password1" placeholder="CONFIRM password..." required>
+                        </div>
+                        <div class="error none ">
+                            <p style="color: red; font-size: 10px; margin: 15px;">it doesn't match please confirm the password!!!!!!</p>
+                        </div>
+                        <div class="sucess none ">
+                            <p style="color:green; font-size: 10px; margin: 15px;">sucessfully matched the password!!!!!!</p>
+                        </div>
+                        <button>CHANGE</button>
+                    </div>
+                </form>
+            </div>
+    </div>
+ </section>
+ <script src="/javascript/main.js"></script>
+</body>
+</html>

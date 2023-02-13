@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>medical history</title>
+    <link rel="stylesheet" href="/stylesheet/doc.css">
+    <%- include("../include/add") %> 
+</head>
+<body>
+    <section class="viewpt">
+        <div class="intros">
+            <div class="logo">
+                <img src="/image/aastu logo.jpg" alt="aastu logo">
+            </div> 
+            <div class="intro">
+                
+                <h1>| MEDICLA HISTORY</h1>
+            </div>
+            
+            <div class="logout">
+               
+                <span></span>
+                <div class="dropdown">
+                    <button onclick="myFunction()" class="dropbtn">DOCTOR <i class="fa-sharp fa-solid fa-caret-down"></i></button>
+                    <div id="myDropdown" class="dropdown-content ">
+                     <% if(doctor){ %> 
+                        <p style="padding-left: 15px;padding-top: 5px;"><%= doctor[1] %> <%= doctor[2] %> </p>
+                        <a href="#" class="cpwrd" onclick="ChangeFunction()">change password</a>
+                        <a href="/doctor/logout/<%= doctor[0] %>">logout</a>
+                        <% } %>
+                    </div>
+             </div>
+            </div>
+        </div>
+        <section   class="">
+            <div>
+        
+                <div>
+                    <div class="addpatient " style="position: absolute; top: 0; z-index: 10; background-color: transparent;" >
+                        <% if(doctor){ %> 
+                        <form action="/dpassword/<%= doctor[0] %>" method="post" class="crtact " id="nwpswrd" >
+                            <div class="hed">
+                        <% } %> 
+                            <h1>CHANGE password</h1>
+                            <i class="clicke">x</i>
+                            </div>
+        
+                            <div class="column">
+                                <div class="row">
+                                    <label for="oldpswrd">OLD password:</label>
+                                    <input type="password" id="oldpswrd" name="oldpassword" placeholder="enter old password..." required>
+                                </div>
+                                <div class="row">
+                                    <label for="pswrd">NEW password:</label>
+                                    <input type="password" id="newpswrd" name="password" placeholder="enter new password..." required>
+                                </div>
+                                <div class="row">
+                                    <label for="pswrd">CONFIRM password:</label>
+                                    <input type="password" id="confpswrd" name="password1" placeholder="confirm password..." required>
+                                </div>
+                                <div class="error none ">
+                                    <p style="color: red; font-size: 10px; margin: 15px;">it doesn't match please confirm the password!!!!!!</p>
+                                </div>
+                                <div class="sucess none ">
+                                    <p style="color:green; font-size: 10px; margin: 15px;">sucessfully matched the password!!!!!!</p>
+                                </div>
+                                <button>CHANGE</button>
+                            </div>
+                        </form>
+                    </div>
+            </div>
+         </section>
+
+    </section>
+    
+    <section class="medic">
+        <div class="search">
+            <div class="src">
+                <form action="/med/search" method="post">
+                <input type="text" name="studentid" placeholder="studentid..." >
+                <button>search</button>
+            </form>
+            </div>    
+        </div>
+        <table class="table"> 
+            <thead>
+               <th>Firstname</th> 
+               <th>Lastname</th>
+               <th>Age</th>
+               <th>Gender</th>
+               <th>Departement</th>
+               <th>Studentid</th>
+               <th>Detail</th>
+            </tr>
+            </thead>
+            <tbody>
+               <% for(let e of arr) {%> 
+                <tr>
+                  <td><%= e.firstname %> </td>
+                  <td><%= e.lastname %> </td>
+                  <td><%= e.age%> </td>
+                  <td><%= e.gender %> </td>
+                  <td><%= e.departement %> </td>
+                  <td><%= e.studentid %> </td>
+                  <td>
+                    <form action="/p/<%= e._id %>">
+                       <button>med history</button>
+                    </form>
+                </tr>
+                <% } %> 
+               
+                    </tbody>
+                </table>
+</section>
+
+<footer>
+    <h5> cms 2022 all right reserved</h5>
+</footer>
+<script src="/javascript/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<% if(success && success.length){ %> 
+   <div class="successn">
+      <%= success %>
+   </div>
+   <script>
+      const s= document.querySelector(".successn")
+      const d= setTimeout(()=>{
+         s.style.display="none"
+      },2000)
+     
+   </script>
+   <% } %> 
+   <% if(error && error.length) {%> 
+   <div class="errorn">
+      <%= error %>
+   </div>
+   <script>
+      const e= document.querySelector(".errorn")
+      const f=setTimeout(()=>{
+         e.style.display="none"
+      },3000)
+   </script>
+   <% } %> 
+  
+   

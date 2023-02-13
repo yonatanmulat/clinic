@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>edit patient info</title>
+    <link rel="stylesheet" href="/stylesheet/dash.css">
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+</head>
+<body>
+   <div class="container">
+    <nav> 
+        <div class="navigation">
+            <ul id="navbr" class="nav">
+                <li class="logo">
+                    <div class="icon"></div>
+                    <img src="/image/aastu logo.jpg" alt="img">
+            </li>
+                <div class="search">
+                        <div class="src">
+                            <form action="">
+                            <input type="text" placeholder="search patient..." >
+                            <button>search</button>
+                        </form>
+                        </div>    
+                    </div>
+                    <li class= "">
+                    
+                        <div class="icon"><i class="fa-solid fa-list"></i></div>
+                        <div class="employee">
+                           <% if(staff) {%>  
+                            <a href="/request/<%= staff[0] %>">
+                                <h1>
+                                    DASHBOARD
+                                </h1>
+                            </a>
+                            <% } %> 
+                    </div>
+                </li>
+                <li class= "active">
+                    
+                        <div class="icon"><i class="fa-sharp fa-solid fa-plus"></i></div>
+                        <div class="employee"> 
+                            <a href="/register">
+                                <h1 style="color: white;">
+                                    EDIT PATIENT INFO
+                                </h1>
+                            </a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="main">
+        <div class="heading">
+            <h1>CLINICAL MANAGEMENT SYSTEM</h1>
+            <div class="dropdown">
+                <button onclick="myFunction()" class="dropbtn">Reception <br><i class="fa-sharp fa-solid fa-caret-down"></i></button>
+                <div id="myDropdown" class="dropdown-content ">
+                  <% if(staff){ %> 
+                  <a href=""><%= staff[1] %> <%= staff[2] %></a>
+                  <a href="/changepassword/<%= staff[0] %>">changepasswords</a>
+                  <a href="#" class="cpwrd" onclick="ChangeFunction()">change password</a>
+                  <a href="/staff/logout/<%= staff[0] %>">logout</a>
+                  <% } %> 
+                </div>
+         </div>
+         <section   class="">
+            <div>
+        
+                <div>
+                    <div class="addpatient " style="position: absolute; top: 0; z-index: 100; background-color: transparent;" >
+                        <% if(staff){ %> 
+                        <form action="/changepassword/<%= staff[0] %>" method="post" class="crtact " id="nwpswrd" >
+                           <% } %> 
+                            <div class="hed">
+                            <h1>CHANGE password</h1>
+                            <i class="clicke">x</i>
+                            </div>
+        
+                            <div class="column">
+                                <div class="row">
+                                    <label for="oldpswrd">OLD password:</label>
+                                    <input type="password" id="oldpswrd" name="oldpassword" placeholder="enter old password..." required>
+                                </div>
+                                <div class="row">
+                                    <label for="pswrd">NEW password:</label>
+                                    <input type="password" id="pswrd" name="password" placeholder="enter new password..." required>
+                                </div>
+                                <div class="row">
+                                    <label for="pswrd">CONFIRM password:</label>
+                                    <input type="password" id="pswrd" name="password1" placeholder="confirm password..." required>
+                                </div>
+                                <div class="error none ">
+                                    <p style="color: red; font-size: 10px; margin: 15px;">it doesn't match please confirm the password!!!!!!</p>
+                                </div>
+                                <div class="sucess none ">
+                                    <p style="color:green; font-size: 10px; margin: 15px;">sucessfully matched the password!!!!!!</p>
+                                </div>
+                                <button>CHANGE</button>
+                            </div>
+                        </form>
+                    </div>
+            </div>
+         </section>
+        </div>
+     <h1  class="h1">  | EDIT PATIENT INFO</h1>
+     
+    <div class="addpatient">
+        <h1>EDIT patient info</h1>
+        <form method="post" action="/login/<%= patient._id %>?_method=patch" class="reg" >
+            <div class="column">
+                <div class="row">
+                    <label for="firstname">first-name:</label>
+                    <input type="text" id="firstname" name="firstname" value="<%= patient.firstname %>" required>
+                </div>
+                <div class="row">
+                    <label for="lastname">last-name:</label>
+                    <input type="text" id="lastname" name="lastname" value="<%= patient.lastname %>" required>
+                </div>
+                <div class="row">
+                    <label for="departement">department:</label>
+                    <input type="text" id="departement" name="departement" value="<%= patient.departement %>" required>
+                </div>
+                <div class="row">
+                    <label for="age">age:</label>
+                    <input type="number" id="age" name="age" value="<%= patient.age %>" required>
+                </div>
+                <div class="row">
+                    <label for="studentid">Studentid:</label>
+                    <input type="text" id="studentid" name="studentid" value="<%= patient.studentid %>" required>
+                </div>
+                <div class="row">
+                    <label for="gender">Gender:</label>
+                    <select name="gender" id="gender">
+                        <option value="male" <%= patient.gender=="male" ? "selected" : "" %>>male</option>
+                        <option value="female"<%= patient.gender=="female" ? "selected" : "" %> >female</option>
+                    </select>
+                </div>
+                <button>edit</button>
+            </div>
+        </form>
+    </div>
+</div>
+<script src="/javascript/main.js"></script>
+    
+</body>
+</html>

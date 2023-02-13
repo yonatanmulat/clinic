@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>register</title>
+   <link rel="stylesheet" href="/stylesheet/dash.css">
+   <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+</head>
+
+<body>
+   <section>
+      <div>
+
+         <div>
+            <div class="addpatients">
+               <form action="/register/labratory" method="post" style="background-color: black; position: relative; top: 50;">
+                  <h1>CREATE ACOUNT</h1>
+                  <div class="column">
+                     <div class="row">
+                        <label for="firstname">first-name:</label>
+                        <input type="text" id="firstname" name="firstname" placeholder="first-name.." required>
+                     </div>
+                     <div class="row">
+                        <label for="lastname">last-name:</label>
+                        <input type="text" id="lastname" name="lastname" placeholder="last-name.." required>
+                     </div>
+                     <div class="row">
+                        <label for="username">user name:</label>
+                        <input type="text" id="username" name="username" placeholder="username.." required>
+                     </div>
+                     <div class="row">
+                        <label for="age">age:</label>
+                        <input type="age" id="age" name="age" min="0" placeholder="age.." required>
+                     </div>
+                     <div class="row">
+                        <label for="password">password:</label>
+                        <input type="password" id="password" name="password" placeholder="enter password..." required>
+                     </div>
+                     <div class="row">
+                        <label for="gender">Gender:</label>
+                        <select name="gender" id="gender">
+                           <option value="male">male</option>
+                           <option value="female">female</option>
+                        </select>
+                     </div>
+                     <button>register</button>
+                  </div>
+               </form>
+            </div>
+         </div>
+         <footer>
+            <h5> cms 2022 all right reserved</h5>
+         </footer>
+   </section>
+</body>
+
+</html>

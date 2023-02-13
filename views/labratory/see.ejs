@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>view laboratory</title>
+   <link rel="stylesheet" href="/stylesheet/doc.css">
+   <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+   <script src="/socket.io/socket.io.js"></script>
+</head>
+
+<body>
+   <section class="viewpt">
+      <div class="intros">
+         <div class="logo">
+            <img src="/image/aastu logo.jpg" alt="aastu logo">
+         </div>
+         <div class="intro">
+            <h1>| LABRATORY</h1>
+         </div>
+         <div class="logout">
+            <span></span>
+            <div class="dropdown">
+               <button onclick="myFunction()" class="dropbtn">LABRATORY<br><i
+                     class="fa-sharp fa-solid fa-caret-down"></i></button>
+               <div id="myDropdown" class="dropdown-content ">
+                  <% if(laboratory){ %>
+                     <p style="margin: 5px 0px 0px 15px;">
+                        <%= laboratory[1] %>
+                           <%= laboratory[2] %>
+                     </p>
+                     <a href="#" class="cpwrd" onclick="ChangeFunction()">change password</a>
+                     <a class="a" href="/changepasswords/<%= laboratory[0] %>">change password</a>
+                     <a href="/laboratory/logout/<%= laboratory[0] %>">logout</a>
+                     <% } %>
+               </div>
+            </div>
+         </div>
+
+      </div>
+
+   </section>
+   <section class="">
+      <div>
+
+         <div>
+            <div class="addpatient " style="position: absolute; top: 0; z-index: 10; background-color: transparent;">
+               <form action="/changepasswords/<%= labid %>" method="post" class="crtact " id="nwpswrd">
+                  <div class="hed">
+                     <h1>CHANGE password</h1>
+                     <i class="clicke">x</i>
+                  </div>
+
+                  <div class="column">
+                     <div class="row">
+                        <label for="oldpswrd">OLD password:</label>
+                        <input type="password" id="oldpswrd" name="oldpassword" placeholder="enter old password..."
+                           required>
+                     </div>
+                     <div class="row">
+                        <label for="pswrd">NEW password:</label>
+                        <input type="password" id="newpswrd" name="password" placeholder="enter new password..."
+                           required>
+                     </div>
+                     <div class="row">
+                        <label for="pswrd">CONFIRM password:</label>
+                        <input type="password" id="confpswrd" name="password1" placeholder="confirm password..."
+                           required>
+                     </div>
+                     <div class="error none ">
+                        <p style="color: red; font-size: 10px; margin: 15px;">it doesn't match please confirm the
+                           password!!!!!!</p>
+                     </div>
+                     <div class="sucess none ">
+                        <p style="color:green; font-size: 10px; margin: 15px;">sucessfully matched the password!!!!!!
+                        </p>
+                     </div>
+                     <button>CHANGE</button>
+                  </div>
+               </form>
+            </div>
+         </div>
+   </section>
+
+   <section style="margin-top: 20px;" class="asign">
+      <h1></h1>
+
+      <div class="labview">
+         <h1>VIEW TEST TYPE </h1>
+         <div class="testtype">
+            <div class="type">
+               <h1>test type</h1>
+               <% for(let e of arr) {%>
+                  <ul>
+                     <li>
+                        <%= e.name %>
+                     </li>
+                  </ul>
+            </div>
+         </div>
+         <div class="description">
+            <h1>description</h1>
+            <ul>
+               <li>
+                  <%= e.description %>
+               </li>
+            </ul>
+         </div>
+      </div>
+      </div>
+
+
+      <form action="/login/<%= id %>/lab/<%= labid %>" method="post">
+         <div class="colum">
+            <div class="test">
+               <label for="test">TEST TYPE</label>
+               <select name="" id="test" multiple required>
+                  <option value="stool">STOOL</option>
+                  <option value="urine analysis">URINE ANALYSIS</option>
+               </select>
+            </div>
+            <div class="testform">
+
+
+               <% if(e.name=="stool" ) {%>
+                  <div class="stool">
+                     <h1>STOOL</h1>
+                     <div class="stoollist">
+                        <div>
+                           <label for="appearance">appearance:</label>
+                           <input type="text" name="appearance" id="appearance" placeholder="appearance result...">
+                        </div>
+                        <div>
+                           <label for="consistance">consistence:</label>
+                           <input type="text" name="consistance" id="consistance" placeholder="consistence result...">
+                        </div>
+                        <div>
+                           <label for="pus">pus:</label>
+                           <input type="text" name="pus" id="pus" placeholder="pus result...">
+                        </div>
+                        <div>
+                           <label for="RBCs">RBC:</label>
+                           <input type="text" name="RBCs" id="RBCs" placeholder="RBC result...">
+                        </div>
+                        <div>
+                           <label for="stoolage">H.Pylori stool AG:</label>
+                           <input type="text" name="stoolage" id="stoolage" placeholder="H.Pylori stool AG result...">
+                        </div>
+                        <div>
+                           <label for="parasite">ova of parasite:</label>
+                           <input type="text" name="parasite" id="parasite" placeholder="ova of parasite result...">
+                        </div>
+                     </div>
+                  </div>
+                  <% } else if(e.name=="urinalysis" ){ %>
+                     <div>
+                        <h1 class="">URINE ANALYSIS</h1>
+                        <div class="urine hide">
+
+                           <div>
+                              <h5>urine chemical</h5>
+                              <div class="urinelist">
+                                 <label for="color">color:</label>
+                                 <input type="text" name="color" id="color" placeholder="color result...">
+                                 <label for="appearanceu">appearance:</label>
+                                 <input type="text" name="appearanceu" id="appearanceu"
+                                    placeholder="appearance result...">
+                                 <label for="gravity">sp.gravity:</label>
+                                 <input type="text" name="gravity" id="gravity" placeholder="sp.gravity result...">
+                                 <label for="ph">PH:</label>
+                                 <input type="text" name="ph" id="ph" placeholder=" PH result...">
+                                 <label for="bilirubin">Bilirubin</label>
+                                 <input type="text" name="bilirubin" id="bilirubin" placeholder="Bilirubin result...">
+                                 <label for="urobilinogen">urobilinogen:</label>
+                                 <input type="text" name="urobilinogen" id="urobilinogen"
+                                    placeholder="urobilinogen result...">
+                                 <label for="ketone">ketone:</label>
+                                 <input type="text" name="ketone" id="ketone" placeholder="ketone result...">
+                                 <label for="glucose">glucose:</label>
+                                 <input type="text" name="glucose" id="glucose" placeholder="glucose result...">
+                                 <label for="protien">protien:</label>
+                                 <input type="text" name="protien" id="protien" placeholder="protien result...">
+                                 <label for="blood">blood:</label>
+                                 <input type="text" name="blood" id="blood" placeholder="blood result...">
+                                 <label for="nitrite">nitrite</label>
+                                 <input type="text" name="nitrite" id="nitrite" placeholder="nitrite result...">
+                                 <label for="leukocycte">leukocycte:</label>
+                                 <input type="text" name="leukocycte" id="leukocycte"
+                                    placeholder=" leukocycte result...">
+                                 <label for="hugtest">HCG TEST:</label>
+                                 <input type="text" name="hugtest" id="hugtest" placeholder=" HCG test result...">
+                              </div>
+                           </div>
+                           <div>
+                              <h5>microscopy</h5>
+                              <div class="urinelists">
+                                 <label for="wbc">WBC:</label>
+                                 <input type="text" name="wbc" id="wbc" placeholder="WBC result...">
+                                 <label for="RBC">RBC:</label>
+                                 <input type="text" name="RBC" id="RBC" placeholder="RBC result...">
+                                 <label for="epitherialcell">Epitherial cell:</label>
+                                 <input type="text" name="epitherialcell" id="epitherialcell"
+                                    placeholder="Epitherial cell result...">
+                                 <label for="bacteria">bacteria:</label>
+                                 <input type="text" name="bacteria" id="bacteria" placeholder=" bacteria result...">
+                                 <label for="crystal">crystal:</label>
+                                 <input type="text" name="crystal" id="crystal" placeholder="crystal result...">
+                                 <label for="casts">casts:</label>
+                                 <input type="text" name="casts" id="casts" placeholder="casts result...">
+                                 <label for="other">other:</label>
+                                 <input type="text" name="other" id="other" placeholder="other result...">
+                              </div>
+                           </div>
+                        </div>
+                        <% } else if(e.name=="stool" ,"urinalysis") {%>
+                           <div class="stool">
+                              <h1>STOOL</h1>
+                              <div class="stoollist">
+                                 <div>
+                                    <label for="appearance">appearance:</label>
+                                    <input type="text" name="appearance" id="appearance"
+                                       placeholder="appearance result...">
+                                 </div>
+                                 <div>
+                                    <label for="consistance">consistence:</label>
+                                    <input type="text" name="consistance" id="consistance"
+                                       placeholder="consistence result...">
+                                 </div>
+                                 <div>
+                                    <label for="pus">pus:</label>
+                                    <input type="text" name="pus" id="pus" placeholder="pus result...">
+                                 </div>
+                                 <div>
+                                    <label for="RBC">RBC:</label>
+                                    <input type="text" name="RBC" id="RBC" placeholder="RBC result...">
+                                 </div>
+                                 <div>
+                                    <label for="stoolage">H.Pylori stool AG:</label>
+                                    <input type="text" name="stoolage" id="stoolage"
+                                       placeholder="H.Pylori stool AG result...">
+                                 </div>
+                                 <div>
+                                    <label for="parasite">ova of parasite:</label>
+                                    <input type="text" name="parasite" id="parasite"
+                                       placeholder="ova of parasite result...">
+                                 </div>
+                              </div>
+                           </div>
+                     </div>
+                     <div>
+                        <h1 class="">URINE ANALYSIS</h1>
+                        <div class="urine hide">
+
+                           <div>
+                              <h5>urine chemical</h5>
+                              <div class="urinelist">
+                                 <label for="color">color:</label>
+                                 <input type="text" name="color" id="color" placeholder="color result...">
+                                 <label for="appearanceu">appearance:</label>
+                                 <input type="text" name="appearanceu" id="appearanceu"
+                                    placeholder="appearance result...">
+                                 <label for="gravity">sp.gravity:</label>
+                                 <input type="text" name="gravity" id="gravity" placeholder="sp.gravity result...">
+                                 <label for="ph">PH:</label>
+                                 <input type="text" name="ph" id="ph" placeholder=" PH result...">
+                                 <label for="bilirubin">Bilirubin</label>
+                                 <input type="text" name="bilirubin" id="bilirubin" placeholder="Bilirubin result...">
+                                 <label for="urobilinogen">urobilinogen:</label>
+                                 <input type="text" name="urobilinogen" id="urobilinogen"
+                                    placeholder="urobilinogen result...">
+                                 <label for="ketone">ketone:</label>
+                                 <input type="text" name="ketone" id="ketone" placeholder="ketone result...">
+                                 <label for="glucose">glucose:</label>
+                                 <input type="text" name="glucose" id="glucose" placeholder="glucose result...">
+                                 <label for="protien">protien:</label>
+                                 <input type="text" name="protien" id="protien" placeholder="protien result...">
+                                 <label for="blood">blood:</label>
+                                 <input type="text" name="blood" id="blood" placeholder="blood result...">
+                                 <label for="nitrite">nitrite</label>
+                                 <input type="text" name="nitrite" id="nitrite" placeholder="nitrite result...">
+                                 <label for="leukocycte">leukocycte:</label>
+                                 <input type="text" name="leukocycte" id="leukocycte"
+                                    placeholder=" leukocycte result...">
+                                 <label for="hugtest">HCG TEST:</label>
+                                 <input type="text" name="hugtest" id="hugtest" placeholder=" HCG test result...">
+                              </div>
+                           </div>
+                           <div>
+                              <h5>microscopy</h5>
+                              <div class="urinelists">
+                                 <label for="wbc">WBC:</label>
+                                 <input type="text" name="wbc" id="wbc" placeholder="WBC result...">
+                                 <label for="RBC">RBC:</label>
+                                 <input type="text" name="RBC" id="RBC" placeholder="RBC result...">
+                                 <label for="epitherialcell">Epitherial cell:</label>
+                                 <input type="text" name="epitherialcell" id="epitherialcell"
+                                    placeholder="Epitherial cell result...">
+                                 <label for="bacteria">bacteria:</label>
+                                 <input type="text" name="bacteria" id="bacteria" placeholder=" bacteria result...">
+                                 <label for="crystal">crystal:</label>
+                                 <input type="text" name="crystal" id="crystal" placeholder="crystal result...">
+                                 <label for="casts">casts:</label>
+                                 <input type="text" name="casts" id="casts" placeholder="casts result...">
+                                 <label for="other">other:</label>
+                                 <input type="text" name="other" id="other" placeholder="other result...">
+                              </div>
+                           </div>
+                        </div>
+
+
+
+                        <% } %>
+                     </div>
+                     <% } %>
+            </div>
+
+
+
+            <button>SUBMIT</button>
+         </div>
+
+      </form>
+
+   </section>
+
+
+
+   </section>
+
+   <footer>
+      <h5> cms 2022 all right reserved</h5>
+   </footer>
+   <script src="/javascript/main.js"></script>
+   <script>
+      const socket = io();
+      const btn = document.querySelector(".staff-io");
+      btn.addEventListener("click", () => {
+         socket.emit("labresult", "new lab result");
+      })
+   </script>
+</body>
+
+</html>

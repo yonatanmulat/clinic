@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>add role</title>
+    <link rel="stylesheet" href="/stylesheet/dash.css">
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <%- include("../include/add") %>
+   </head>
+<body><div class="container">
+    <nav> 
+        <div class="navigation">
+            <ul id="navbr" class="nav">
+                <li class="logo">
+                    <div class="icon"></div>
+                    <img src="/image/aastu logo.jpg" alt="img">
+            </li>
+                <li>
+                    
+                    <div class="icon"><i class="fa-solid fa-list"></i></div>
+                    <div class=""> 
+                        <a href="/admin/<%= id %>">
+                            <h1>
+                             DASHBOARD
+                            </h1>
+                        </a>
+                </div>
+                </li>
+                <li class="active">
+                    
+                    <div class="icon"><i class="fa-sharp fa-solid fa-plus"></i></div>
+                    <div class="" > 
+                        <a href="/admin/addrole/<%= id %>" style="color:white ;">
+                            <h1>
+                             ADD EMPLOYEE
+                            </h1>
+                        </a>
+                </div>
+                </li>
+                <li>
+                    
+                    <div class="icon"><i class="fa-sharp fa-solid fa-eye"></i></div>
+                    <div class=""> 
+                        <a href="/admin/viewinformation/<%= id %>">
+                            <h1>
+                          VIEW PATIENT
+                            </h1>
+                        </a>
+                </div>
+                </li>
+                <li>
+                    
+                    <div class="icon"><i class="fa-sharp fa-solid fa-plus"></i></div>
+                    <div class=""> 
+                        <a href="/admin/register/<%= id %>">
+                            <h1>
+                          ADD ADMIN
+                            </h1>
+                        </a>
+                </div>
+                </li>
+                <li  >
+                    
+                    <div class="icon"><i class="fa-sharp fa-solid fa-eye"></i></div>
+                    <div class=""> 
+                        <a href="/admin/viewemployee/<%= id %>">
+                            <h1>
+                          VIEW EMPLOYEE
+                            </h1>
+                        </a>
+                </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="main">
+        <div class="heading">
+         <%- include("../include/notification") %> 
+            <h1>CLINICAL MANAGEMENT SYSTEM</h1>
+            <div class="dropdown">
+                <button onclick="myFunction()" class="dropbtn">ADMIN <br><i class="fa-sharp fa-solid fa-caret-down"></i></button>
+                <div id="myDropdown" class="dropdown-content ">
+                  <% if(user){ %> 
+                  <a href=""><%= user[1] %> <%=  user[2] %></a>
+                  <a href="#" class="cpwrd" onclick="ChangeFunction()">change password</a>
+                  <a href="/admin/logout/<%= user[0] %>">logout</a>
+                  <% } %> 
+                </div>
+         </div>
+         <section   class="">
+            <div>
+        
+                <div>
+                    <div class="addpatient " style="position: absolute; top: 0; z-index: 10; background-color: transparent;" >
+                        <form action="/apassword/<%= id %>" method="post" class="crtact " id="nwpswrd" >
+                            <div class="hed">
+                            <h1>CHANGE password</h1>
+                            <i class="clicke">x</i>
+                            </div>
+        
+                            <div class="column">
+                                <div class="row">
+                                    <label for="oldpswrd">OLD password:</label>
+                                    <input type="password" id="oldpswrd" name="oldpassword" placeholder="enter old password..." required>
+                                </div>
+                                <div class="row">
+                                    <label for="pswrd">NEW password:</label>
+                                    <input type="password" id="newpswrd" name="password" placeholder="enter new password..." required>
+                                </div>
+                                <div class="row">
+                                    <label for="pswrd">CONFIRM password:</label>
+                                    <input type="password" id="confpswrd" name="password1" placeholder="confirm password..." required>
+                                </div>
+                                <div class="error none ">
+                                    <p style="color: red; font-size: 10px; margin: 15px;">it doesn't match please confirm the password!!!!!!</p>
+                                </div>
+                                <div class="sucess none ">
+                                    <p style="color:green; font-size: 10px; margin: 15px;">sucessfully matched the password!!!!!!</p>
+                                </div>
+                                <button>CHANGE</button>
+                            </div>
+                        </form>
+                    </div>
+            </div>
+         </section>
+        </div>
+     <h1  class="h1"> | ADD EMPLOYEE</h1>
+     <div class="count">
+        <h1> <span><%= numdoctor + numstaff + numlabratory %> </span></h1>
+        <h6>NO OF doctor:<%= numdoctor %> </h6>
+        <h6>NO OF staff: <%= numstaff %> </h6>
+        <h6>NO OF lab:<%= numlabratory %> </h6>
+        
+
+     </div>
+   
+
+<section class="add employee">
+    <div class="register">
+        <h1>choose ROLE</h1>
+        <form action="/admin/addrole" method="post" class="reg">
+            <label for="user">
+                <input type="text" id="user" name="username" placeholder="username" required>
+            </label>
+            <select name="role" id="role">
+                <h1>ROLE</h1>
+                <option value="doctor">DOCTOR</option>
+                <option value="staff">STAFF</option>
+                <option value="laboratory">LABRATORY</option>
+            </select>
+
+            <button>SUBMIT</button>
+        </form>
+    </div>
+</div>
+</div>
+</section>
+<script src="/javascript/main.js"></script>
+</body>
+</html>

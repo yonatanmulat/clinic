@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>staff login</title>
+    <link rel="stylesheet" href="/stylesheet/style.css">
+    <%- include("../include/add") %>
+</head>
+<body>
+    <section class="notification">
+        <%- include("../include/notification") %> 
+     </section>
+    <section id="stflogin">  
+    <div class="stalogin">
+        <h6>SIGNIN IN TO YOUR ACOUNT</h6>
+    </div>
+    <div class="form">
+        <h6><span>please enter your name and password to log in</span></h6>
+        <form action="/login/staff" method="post">
+        <div>
+            <label for="username"></label>
+            <input type="text" id="username" placeholder="username"  name= "username" required>
+        </div>
+
+    
+        <div>
+            <label for="password"></label>
+            <input type="password" id="password" name="password" placeholder="password" required>
+        </div>
+        <div>
+             <button style="color: white;"> login</button>
+        </div>    
+        </form>
+        <div class="act">
+            <h6><span>don't have an acount yet?</span></h6>
+           <a href="/register/staff"><h6>create  an acount</h6></a> 
+        </div>
+    </div>
+    <footer>
+        <h5> cms 2022 all right reserved</h5>
+    </footer>
+    </section>
+</body>
+</html>

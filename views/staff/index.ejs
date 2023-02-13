@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>assign doctor</title>
+    <link rel="stylesheet" href="/stylesheet/doc.css">
+    <script src="/socket.io/socket.io.js"></script>
+
+</head>
+
+<body>
+    <section class="viewpt">
+        <div class="intros">
+            <div class="logo">
+                <img src="/image/aastu logo.jpg" alt="aastu logo">
+            </div>
+
+            <div class="intro">
+                <%- include("../include/notification") %>
+                    <h1>| ASSIGN DOCTOR</h1>
+            </div>
+
+            <div class="logout">
+
+                <span></span>
+                <div class="dropdown">
+                    <button onclick="myFunction()" class="dropbtn">Reception<i
+                            class="fa-sharp fa-solid fa-caret-down"></i></button>
+                    <div id="myDropdown" class="dropdown-content ">
+                        <% if(staff){ %>
+                            <a href="">
+                                <%= staff[1] %>
+                                    <%= staff[2] %>
+                            </a>
+                            <a href="/changepassword/<%= staff[0] %>">changepassword</a>
+                            <!-- <a href="#" class="cpwrd" onclick="ChangeFunction()">change password</a> -->
+                            <a href="/staff/logout/<%= staff[0] %>">logout</a>
+                            <% } %>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <section class="">
+            <div>
+
+                <div>
+                    <div class="addpatient "
+                        style="position: absolute; top: 0; z-index: 10; background-color: transparent;">
+                        <form action="" class="crtact " id="nwpswrd">
+                            <div class="hed">
+                                <h1>CHANGE password</h1>
+                                <i class="clicke">x</i>
+                            </div>
+
+                            <div class="column">
+                                <div class="row">
+                                    <label for="oldpswrd">OLD password:</label>
+                                    <input type="password" id="oldpswrd" name="oldpassword"
+                                        placeholder="enter old password..." required>
+                                </div>
+                                <div class="row">
+                                    <label for="pswrd">NEW password:</label>
+                                    <input type="password" id="newpswrd" name="newpswrd"
+                                        placeholder="enter new password..." required>
+                                </div>
+                                <div class="row">
+                                    <label for="pswrd">CONFIRM password:</label>
+                                    <input type="password" id="confpswrd" name="confpswrd"
+                                        placeholder="confirm password..." required>
+                                </div>
+                                <div class="error none ">
+                                    <p style="color: red; font-size: 10px; margin: 15px;">it doesn't match please
+                                        confirm the password!!!!!!</p>
+                                </div>
+                                <div class="sucess none ">
+                                    <p style="color:green; font-size: 10px; margin: 15px;">sucessfully matched the
+                                        password!!!!!!</p>
+                                </div>
+                                <button>CHANGE</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+        </section>
+
+    </section>
+    <section class="medic">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Firstname</th>
+                    <th>Lastname</th>
+                    <th>Age</th>
+                    <th>Gender</th>
+                    <th>Departement</th>
+                    <th>Student id</th>
+                    <th>action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <%= patient.firstname %>
+                    </td>
+                    <td>
+                        <%= patient.lastname %>
+                    </td>
+                    <td>
+                        <%= patient.age %>
+                    </td>
+                    <td>
+                        <%= patient.gender %>
+                    </td>
+                    <td>
+                        <%= patient.departement %>
+                    </td>
+                    <td>
+                        <%= patient.studentid %>
+                    </td>
+                    <td>
+                        <form action="/login/<%= patient._id %>/edit">
+                            <button>edit</button>
+                        </form>
+                    </td>
+                </tr>
+
+
+            </tbody>
+        </table>
+
+    </section>
+    <section class="assigndoc">
+        <h1>select doctor</h1>
+
+        <form action="/login/<%= patient._id %>/doctor" method="post">
+            <div class="column">
+                <div class="doc">
+                    <label for="username">DOCTOR</label>
+                    <select name="username" id="username">
+                        <% for(let doctor of doctors){ %>
+                            <option value="<%= doctor.username %>">
+                                <%= doctor.firstname %>
+                            </option>
+                            <% } %>
+                    </select>
+                </div>
+                <button class="staff-io">SEND</button>
+            </div>
+        </form>
+
+    </section>
+    <footer>
+        <h5> cms 2022 all right reserved</h5>
+    </footer>
+    <script src="/javascript/main.js"></script>
+    <script>
+        const socket = io();
+        const btn = document.querySelector(".staff-io");
+        btn.addEventListener("click", () => {
+            socket.emit("notification", "new patient");
+        })
+    </script>
+</body>
+
+</html>

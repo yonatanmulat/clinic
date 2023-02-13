@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>laboratory login</title>
+</head>
+<link rel="stylesheet" href="/stylesheet/doc.css">
+<link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+<script src="/socket.io/socket.io.js"></script>
+<%- include("../include/add") %> 
+<body>
+    <!-- <nav>
+        <div class="navigtion">
+            <ul>
+                <a href=""><li>VIEW PATIENT</li></a>
+                <a href=""><li>ASSIGN LAB</li></a>
+                <a href=""><li>LAB RESULT</li></a>
+                
+            </ul>
+        </div>
+    </nav> -->
+    <section class="notification">
+       <%- include("../include/notification") %> 
+    </section>
+    <section class="not">
+        <p class="p"></p>
+    </section>
+    <section class="yes">
+         <p class="y"></p>
+    </section>
+   
+    <section class="viewpt">
+        <div class="intros">
+            <div class="logo">
+                <img src="/image/aastu logo.jpg" alt="aastu logo">
+            </div>
+            <div class="intro">
+                <h1>| VIEW PATIENT</h1>
+            </div>
+
+            <div class="logout">
+               
+                <span></span>
+                <div class="dropdown">
+                    <button onclick="myFunction()" class="dropbtn">DOCTOR <i class="fa-sharp fa-solid fa-caret-down"></i></button>
+                    <div id="myDropdown" class="dropdown-content ">
+                      <% if(doctor){ %> 
+                        <p style="padding-left: 15px;padding-top: 5px;"><%= doctor[1] %> <%= doctor[2] %> </p>
+                        <a href="#" class="cpwrd" onclick="ChangeFunction()">change password</a>
+                        <a href="/doctor/logout/<%= doctor[0] %>">logout</a>
+                        <% } %>
+                    </div>
+             </div>
+            </div>
+            
+            
+        </div>
+        <section   class="">
+            <div>
+        
+                <div>
+                    <div class="addpatient " style="position: absolute; top: 0; z-index: 10; background-color: transparent;" >
+                        <form action="/dpassword/<%= id %>" method="post" class="crtact " id="nwpswrd" >
+                            <div class="hed">
+                            <h1>CHANGE password</h1>
+                            <i class="clicke">x</i>
+                            </div>
+        
+                            <div class="column">
+                                <div class="row">
+                                    <label for="oldpswrd">OLD password:</label>
+                                    <input type="password" id="oldpswrd" name="oldpassword" placeholder="enter old password..." required>
+                                </div>
+                                <div class="row">
+                                    <label for="pswrd">NEW password:</label>
+                                    <input type="password" id="newpswrd" name="password" placeholder="enter new password..." required>
+                                </div>
+                                <div class="row">
+                                    <label for="pswrd">CONFIRM password:</label>
+                                    <input type="password" id="confpswrd" name="password1" placeholder="confirm password..." required>
+                                </div>
+                                <div class="error none ">
+                                    <p style="color: red; font-size: 10px; margin: 15px;">it doesn't match please confirm the password!!!!!!</p>
+                                </div>
+                                <div class="sucess none ">
+                                    <p style="color:green; font-size: 10px; margin: 15px;">sucessfully matched the password!!!!!!</p>
+                                </div>
+                                <button>CHANGE</button>
+                            </div>
+                        </form>
+                    </div>
+            </div>
+         </section>
+
+    </section>
+    <section class="listpatient">
+        <table class="table"> 
+            <thead>
+              <th>Firstname</th> 
+              <th>Lastname</th>
+              <th>Age</th>
+              <th>Gender</th>
+              <th>Departement</th>
+              <th>Date</th>
+              <th>Studentid</th>
+              <th>Detail</th>
+              <th>Assignlab</th>
+              <th>Result</th>
+            </tr>
+            </thead>
+            <tbody>
+              <% for(let e of arr){ %> 
+                <tr>
+                  <td><%= e.data.firstname %> </td>
+                  <td><%= e.data.lastname %> </td>
+                  <td><%= e.data.age%> </td>
+                  <td><%= e.data.gender %> </td>
+                  <td><%= e.data.departement %> </td>
+                  <td><%= e.date %> </td>
+                  <td><%= e.data.studentid %> </td> 
+                  <td>
+                    <form action="/login/<%= e.data._id %>/d/<%= id %>">
+                      <button>detail</button>
+                    </form>
+                  </td>
+                  <td>
+                    <form action="/login/<%= e.data._id %>/doctor/<%= id %>">
+                      <button>assignlab</button>
+                    </form>
+                  </td>
+                  <td> <form action="/login/<%= e.data._id %>/result/<%= id %>">
+                    <button>lab result</button>
+                  </form></td>   
+
+
+
+                   
+                </tr>
+              <% } %> 
+                
+            </tbody>
+         </table>
+    </section>
+    <footer>
+        <h5> cms 2022 all right reserved</h5>
+    </footer>
+    <script src="/javascript/main.js"></script>
+    <script>
+        const socket= io("");
+        const not= document.querySelector(".not");
+        const p= document.querySelector(".p")
+        const y= document.querySelector("y");
+        const yes= document.querySelector(".yes")
+        socket.on("notification",function(msg){
+            p.textContent=msg;
+            not.append(p);
+            setTimeout(()=>{
+                p.style.display="none"
+            },2000)
+        });
+        socket.on("labresult",function(msg3){
+            y.textContent=msg3;
+            yes.append(p);
+            setTimeout(()=>{
+                y.style.display="none"
+            },2000)
+        });
+    </script>
+</body>
+</html>
