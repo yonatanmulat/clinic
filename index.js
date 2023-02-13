@@ -25,7 +25,10 @@ const db= process.env.dburl
 const mongoose = require('mongoose');
 const { Socket } = require("dgram");
 mongoose.set('strictQuery', true);
-mongoose.connect(db)
+mongoose.connect(db,{
+   useNewUrlParser: true,
+   useUnifiedTopology: true,
+})
    .then(() => {
       console.log("connection done!!")  
    })
