@@ -10,6 +10,7 @@
 <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
 <%- include("../include/add") %> 
+<script src="/socket.io/socket.io.js"></script>
 <body>
     <!-- <nav>
         <div class="navigtion">
@@ -23,6 +24,9 @@
     </nav> -->
     <section class="notification">
        <%- include("../include/notification") %> 
+    </section>
+     <section class="not">
+        <p class="p"></p>
     </section>
    
     <section class="viewpt">
@@ -101,6 +105,18 @@
         <h5> cms 2022 all right reserved</h5>
     </footer>
     <script src="/javascript/main.js"></script>
+    <script>
+        const socket= io("");
+        const not= document.querySelector(".not");
+        const p= document.querySelector(".p")
+        socket.on("notification",function(msg){
+            p.textContent=msg;
+            not.append(p);
+            setTimeout(()=>{
+                p.style.display="none"
+            },2000)
+        });
+    </script>
 </body>
 </html>
 
